@@ -1,24 +1,66 @@
-REPORTE DE AUDITORÍA DE SEGURIDAD: Maquina SimpleCTF en TryHackMe
-Auditor: Henry Leyton 
-Objetivo: Identificar vectores de ataque y vulnerabilidades en el servidor objetivo para evaluar su estado de seguridad.
-Herramientas: Nmap, conexion ftp y ssh, ataque de fuerza bruta con Hydra.
+# Cybersecurity & CTF Writeups
+# 🛡️ Cybersecurity & CTF Writeups
 
-1. RESUMEN
-Durante la auditoría se logró comprometer totalmente el sistema (Root). El vector de entrada inicial fue una combinación de divulgación de información en un servicio FTP mal configurado y credenciales débiles en el servicio SSH. Finalmente, se logró la escalada de privilegios a nivel administrativo debido a una mala configuración en los permisos de sudoers.
+```text
+                              __
+                            .d$$b
+                          .' TO$;\
+                         /  : TP._;
+                       /   /   ;j$j
+                   _.-"       d$$$$
+                 .' ..       d$$$$;
+                /  /P'      d$$$$P. |\
+               /   "      .d$$$P' |\^"l
+             .'           `T$P^"""""  :
+         ._.'      _.'                ;
+      `-.-".-'-' ._.       _.-"    .-"
+    `.-" _____  ._              .-"
+   -(.g$$$$$$$b.              .'
+     ""^^T$$$P^)            .(:
+       _/  -"  /.'         /:/;
+    ._.'-'`-'  ")/         /;/;
+ `-.-"..--""   " /         /  ;
+.-" ..--""        -'          :
+..--""--.-"         (\      .-(\
+  ..--""              `-\(\/;`
 
-2. HALLAZGOS TÉCNICOS
-Hallazgo 1: Escalada de Privilegios vía Sudo (Vim)
-Severidad (CVSS): Crítica (9.8)
-
-Descripción: El usuario mitch tiene permisos para ejecutar el binario /usr/bin/vim como root sin necesidad de contraseña. Esto permite invocar una shell del sistema dentro del editor, heredando los permisos de superusuario.
-
-Proceso de explotación con comandos de herramientas utilizadas:
-
-```bash 
-sudo nmap -p- --min-rate 5000 -n -vvv [IP_OBJETIVO] -oN escaneo_rapido.txt
 ```
-Impacto: Fuga de información que facilitó el movimiento lateral y el descubrimiento de usuarios válidos para ataques de fuerza bruta.
+Bienvenido a mi repositorio personal de **Ciberseguridad y Pentesting**. Aquí documento mi proceso de aprendizaje, resolución de máquinas CTF (Capture The Flag) y auditorías simuladas.
 
-Remediación:
+El objetivo de este repositorio es demostrar metodologías de enumeración, análisis de vulnerabilidades y explotación ética, priorizando el entendimiento profundo sobre el uso de herramientas automatizadas.
 
-Deshabilitar el acceso anónimo en la configuración del servicio FTP (ej: vsftpd.conf -> anonymous_enable=NO).
+## Sobre Mí
+Soy estudiante de **Ingeniería Informática Mención Desarrollo de Sistemas** y Pentester en formación. Mi enfoque se centra en:
+* **Auditoría de Sistemas Linux/Windows.**
+* **Scripting para Automatización** (Bash/Python).
+
+## Estructura del Repositorio
+Los reportes están organizados por plataforma. Cada archivo `.md` representa una máquina o reto específico:
+
+* 📂 **TryHackMe/**: Writeups de salas de THM.
+* 📂 **HackTheBox/**: Resolución de máquinas de HTB.
+
+## Metodología (Kill Chain)
+Baso mis auditorías en el estándar **PTES (Penetration Testing Execution Standard)** y el framework **MITRE ATT&CK**:
+
+1.  **Reconocimiento:** OSINT y recolección pasiva.
+2.  **Enumeración:** Escaneos de red (`nmap`) y fuzzing web (`gobuster`/`ffuf`).
+3.  **Análisis de Vulnerabilidades:** Identificación de CVEs y malas configuraciones.
+4.  **Explotación:** Obtención de acceso inicial (Reverse Shells).
+5.  **Post-Explotación:** Enumeración interna y Escalada de Privilegios (PrivEsc).
+6.  **Reporte:** Documentación técnica de los hallazgos.
+
+## Tech Stack & Herramientas
+![Nmap](https://img.shields.io/badge/-Nmap-black?style=flat&logo=Nmap)
+![Python](https://img.shields.io/badge/-Python-black?style=flat&logo=Python)
+![Bash](https://img.shields.io/badge/-Bash-black?style=flat&logo=GNU%20Bash)
+![Burp Suite](https://img.shields.io/badge/-Burp%20Suite-black?style=flat&logo=Burp%20Suite)
+![Metasploit](https://img.shields.io/badge/-Metasploit-black?style=flat&logo=Metasploit)
+
+## Disclaimer Legal
+Toda la información contenida en este repositorio tiene **fines puramente educativos**.
+* Las técnicas demostradas se han ejecutado en entornos de laboratorio controlados y autorizados (TryHackMe, HackTheBox, VulnHub).
+* No promuevo ni aliento actividades ilegales. El conocimiento de ciberseguridad debe usarse para proteger y auditar sistemas, no para dañarlos.
+
+---
+*Repositorio mantenido por mrbluesan*
