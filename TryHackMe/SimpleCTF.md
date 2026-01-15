@@ -38,8 +38,8 @@ Al detectar acceso anónimo, nos conectamos para inspeccionar el contenido.
 ```bash
 ftp [IP_OBJETIVO]
 ```
-# Name: anonymous (no intentar con ftp ip -a debido a que no responde el servidor)
-# Password: (Enter)
+Name: anonymous (no intentar con ftp ip -a debido a que no responde el servidor)
+Password: (Enter)
 Dentro del servidor, listamos los archivos y encontramos user.txt (posible información crítica). Lo descargamos a nuestra máquina local:
 ```bash
 ftp> ls
