@@ -44,7 +44,7 @@ ftp [IP_OBJETIVO]
 ```
 Name: anonymous (no intentar con ftp ip -a debido a que no responde el servidor)
 Password: (Enter)
-Dentro del servidor, listamos los archivos y encontramos user.txt (posible información crítica). 
+Dentro del servidor, listamos los archivos y encontramos "ForMitch.txt" (posible información crítica). 
 Lo descargamos a nuestra máquina local (si no carga el servidor hay que desactivar el modo pasivo con passive y voler a intentar):
 ```bash
 ftp> ls
